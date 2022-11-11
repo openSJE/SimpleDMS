@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    부트스트랩 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<!--m(margin) t(top) -->
+<div class="container mt-5">
+    <!--    입력폼 -->
+    <div>
+        <form action="/exam04/dept/add" method="post">
+            <div class="mb-3">
+                <label for="dName" class="form-label">부서 이름</label>
+                <input type="text" class="form-control" id="dName" required name="dName">
+            </div>
+            <div class="mb-3">
+                <label for="loc" class="form-label">부서 위치</label>
+                <input type="text" class="form-control" id="loc" required name="loc">
+            </div>
+            <!--            서브밋(제출) 버튼 -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script th:inline="javascript">
+
+</script>
+</body>
+</html>
+
+
+
+
+
+

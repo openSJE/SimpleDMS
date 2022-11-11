@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+
+<!--1. 타입리프 문법 : Text 표현식 : 화면 변수 글자 표시 -->
+<p>[[${list}]]</p>
+
+
+<!--2. 타임리프 문법 : 반복문 -->
+<!--th:block : 반복문 실행 시 사용하는 태그-->
+<!--th:each="요소 : 배열" -->
+
+<!--</th:block>-->
+<th:block th:each="element : ${list}">
+    <p>[[${element}]]</p>
+</th:block>
+
+
+<!--3.타임리프 문법 :조건문-->
+<!--${변수} : 변수표현식-->
+<!--@{url주소} : 주소표현식-->
+<th:bck th:each="element : ${list}">
+<!-- th:if="조건식" : 조건식이 true이면 화면에 표시 -->
+    <div th:if="${element == 'forbob'}">forbob 가 맞습니다.</div>
+<!-- th:unless="조건식" : 조건식이 false이면 화면에 표시 -->
+    <div th:unless="${element == 'forbob'}">forbob 이 틀립니다.</div>
+</th:bck>
+
+
+
+<script th:inline="javascript">
+    let message = [[${list}]];
+    console.log(message);
+</script>
+
+</body>
+</html>

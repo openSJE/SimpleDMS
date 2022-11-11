@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en"  xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--  bootstrap cdn-->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css" i
+          ntegrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+
+</head>
+<body>
+<div class="container">
+    <!--  springboot에서 보내준 데이터 출력-->
+    <h3>전달 받은 객체 :  [[${list}]]</h3>
+    <table class="table">
+        <thead class="thead-dark">
+        <tr>
+            <th scope="col">번호</th>
+            <th scope="col">이름</th>
+            <th scope="col">직위</th>
+            <th scope="col">담당매니저</th>
+            <th scope="col">등록일자</th>
+            <th scope="col">수정일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr th:each="member : ${list}">
+            <td>[[${member.eno}]]</td>
+            <td>[[${member.eName}]]</td>
+            <td>[[${member.job}]]</td>
+            <td>[[${member.manager}]]</td>
+            <td>[[${member.insertTime}]]</td>
+            <td>[[${member.updateTime}]]</td>
+        </tr>
+        </tbody>
+    </table>
+</div>
+
+<script th:inline="javascript">
+    let obj = [[${list}]];
+    console.log(obj);
+</script>
+</body>
+</html>

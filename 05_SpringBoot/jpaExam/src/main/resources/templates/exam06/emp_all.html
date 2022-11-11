@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 부트스트랩 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <!--    springboot 보내준 데이터 출력 -->
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">job</th>
+            <th scope="col">manager</th>
+            <th scope="col">hiredate</th>
+            <th scope="col">salary</th>
+            <th scope="col">commission</th>
+            <th scope="col">dno</th>
+            <th scope="col">등록일자</th>
+            <th scope="col">수정일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="emp : ${List}">
+            <tr>
+                <td><a th:href="@{'/exam05/emp/edition/' + ${emp.eno}}">[[${emp.eno}]]</a></td>
+                <td>[[${emp.ename}]]</td>
+                <td>[[${emp.job}]]</td>
+                <td>[[${emp.manager}]]</td>
+                <td>[[${emp.hiredate}]]</td>
+                <td>[[${emp.salary}]]</td>
+                <td>[[${emp.commission}]]</td>
+                <td>[[${emp.dno}]]</td>
+                <td>[[${emp.insertTime}]]</td>
+                <td>[[${emp.updateTime}]]</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+    <!--추가 페이지 이동할 버튼-->
+    <div class="text-center">
+        <!--    타임리프 링크 문법 : th:href="@{이동페이지경로}"-->
+        <a th:href="@{/exam05/emp/addition}" class="btn btn-primary center">Add</a>
+
+    </div>
+</div>
+<script th:inline="javascript">
+    let obj = [[${List}]];
+    console.log(obj)
+</script>
+
+
+</body>
+</html>

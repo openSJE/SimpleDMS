@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    부트스트랩 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+<!--m(margin) t(top) -->
+<div class="container mt-5">
+    <!--    입력폼 -->
+    <div>
+        <!--        form 태그 의 속성 method : get, post 2개만 있음 -->
+        <!--        put , delete -> springboot .properties 파일에 추가 설정 필요 -->
+        <!--        th:action="@{'이동페이지url' + ${변수}}"-->
+        <form th:action="@{'/exam05/dept/edit/' + ${dept.dno}}" th:method="put">
+
+            <!--            html 태그 : hidden 태그 - 눈에는 안보임, 데이터 전송됨(서버) -->
+            <input type="hidden" name="dno" th:value="${dept.dno}">
+
+            <div class="mb-3">
+                <label for="dname" class="form-label">부서 이름</label>
+                <input type="text"
+                       class="form-control"
+                       id="dname"
+                       required
+                       name="dname"
+                       th:value="${dept.dname}"
+                >
+            </div>
+            <div class="mb-3">
+                <label for="loc" class="form-label">부서 위치</label>
+                <input type="text"
+                       class="form-control"
+                       id="loc"
+                       required
+                       name="loc"
+                       th:value="${dept.loc}"
+                >
+            </div>
+            <!--            서브밋(제출) 버튼 -->
+            <div class="mb-3">
+                <button type="submit" class="btn btn-primary">Update</button>
+            </div>
+        </form>
+    </div>
+
+</div>
+
+<script th:inline="javascript">
+    let obj = [[${dept}]];
+    console.log(obj);
+</script>
+</body>
+</html>
+

@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <!-- 부트스트랩 cdn -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.2/dist/css/bootstrap.min.css"
+          integrity="sha384-xOolHFLEh07PJGoPkLv1IbcEPTNtaed2xpHsD9ESMhqIYd0nLMwNLD69Npy4HI+N" crossorigin="anonymous">
+</head>
+<body>
+
+<div class="container">
+    <!--    springboot 보내준 데이터 출력 -->
+
+    <table class="table">
+        <thead>
+        <tr>
+            <th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">job</th>
+            <th scope="col">manager</th>
+            <th scope="col">hiredate</th>
+            <th scope="col">salary</th>
+            <th scope="col">commission</th>
+            <th scope="col">dno</th>
+            <th scope="col">등록일자</th>
+            <th scope="col">수정일자</th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr>
+            <td>[[${emp.eno}]]</td>
+            <td>[[${emp.ename}]]</td>
+            <td>[[${emp.job}]]</td>
+            <td>[[${emp.manager}]]</td>
+            <td>[[${emp.hiredate}]]</td>
+            <td>[[${emp.salary}]]</td>
+            <td>[[${emp.commission}]]</td>
+            <td>[[${emp.dno}]]</td>
+            <td>[[${emp.insertTime}]]</td>
+            <td>[[${emp.updateTime}]]</td>
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<script th:inline="javascript">
+    let obj = [[${emp}]];
+    console.log(obj)
+</script>
+
+
+
+</body>
+</html>
